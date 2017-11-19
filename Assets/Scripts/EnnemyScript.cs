@@ -63,5 +63,31 @@ public class EnnemyScript : MonoBehaviour {
         }
         
     }
-   
+
+    private IEnumerator Flasch()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+
+
+            GetComponent<SpriteRenderer>().color = Color.clear;
+            yield return new WaitForSeconds(.1f);
+            GetComponent<SpriteRenderer>().color = Color.red;
+            yield return new WaitForSeconds(.1f);
+
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "HitPlayer")
+        {
+            
+            Destroy(collision.gameObject);
+            StartCoroutine(Flasch());
+            Flasch();
+            
+        }
+    }
+
 }
