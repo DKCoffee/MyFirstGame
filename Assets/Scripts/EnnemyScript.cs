@@ -28,7 +28,7 @@ public class EnnemyScript : MonoBehaviour {
         direction = -1;
         maxDist += transform.position.x;
         minDist -= transform.position.x;
-        
+
 	}
 	
 	// Update is called once per frame
@@ -86,8 +86,12 @@ public class EnnemyScript : MonoBehaviour {
             Destroy(collision.gameObject);
             StartCoroutine(Flasch());
             Flasch();
-            
         }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(body.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+
     }
 
 }

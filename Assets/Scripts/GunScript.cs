@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class GunScript : MonoBehaviour
 {
+    private Rigidbody2D body;
     [SerializeField]
     private float bulletSpeed;
-    private Transform playerTransform;
+
+    private Transform GunTransform;
     private Vector3 playerPosition;
     private Vector3 direction;
+    [SerializeField]
+    private GameObject bulletPrefab;
+
 
 
 	// Use this for initialization
 	void Start ()
     {
-        playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        playerPosition = playerTransform.position;
+        body = GetComponent<Rigidbody2D>();
+        GunTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        playerPosition = GunTransform.position;
         direction = (playerPosition - transform.position).normalized;
 	}
 	
@@ -23,5 +29,7 @@ public class GunScript : MonoBehaviour
 	void Update ()
     {
         transform.position += direction * bulletSpeed * Time.deltaTime;
-	}
+
+
+    }
 }
