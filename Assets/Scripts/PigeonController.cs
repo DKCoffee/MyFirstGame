@@ -22,11 +22,11 @@ public class PigeonController : MonoBehaviour
     private float lastTimeFire = 0;
 
     private SpriteRenderer spriteRenderer;
-    
 
+    int rotFlip = 1;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         body = GetComponent<Rigidbody2D>();
 	}
@@ -41,13 +41,37 @@ public class PigeonController : MonoBehaviour
 
         body.velocity = movement;
 
-        if (Input.GetAxis("Jump") > 0)
+        if (Input.GetKeyDown("space"))
         {
             Shit();
         }
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.flipX = body.velocity.x > 0;
-	}
+        if (moveVertical != 0)
+        {
+            if (body.velocity.x > 0)
+            {
+                rotFlip = -1;
+            }
+            else
+            {
+                rotFlip = 1;
+            }
+            if (moveVertical < 0)
+            {
+                this.transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, rotFlip * 25.0f));
+            }
+            if (moveVertical > 0)
+            {
+                this.transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, rotFlip * -25.0f));
+            }
+        }
+        else
+        {
+            this.transform.rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f));
+        }
+    }
+
     private void Shit()
     {
         if(Time.realtimeSinceStartup - lastTimeFire > timeToFire)

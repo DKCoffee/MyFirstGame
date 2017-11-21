@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnnemyScript : MonoBehaviour {
 
-    private Rigidbody2D body;
+    [SerializeField] private GameObject gun;
+
     [SerializeField]
     private Transform initialPosition;
     [SerializeField]
@@ -16,7 +17,12 @@ public class EnnemyScript : MonoBehaviour {
     [SerializeField]
     private float movingSpeed;
 
-   
+   enum state
+    {
+        WALK,
+        SHOOT
+    }
+    state stateEnemy = state.WALK;
 
 
 
@@ -34,33 +40,44 @@ public class EnnemyScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        switch (direction)
+        switch (stateEnemy)
         {
-            case -1:
-                //Move Left
-                if(transform.position.x > minDist)
+            case state.WALK:
+                switch (direction)
                 {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(-movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
-                }
-                else
-                {
-                    direction = 1;
-                }
-                break;
-            case 1:
-                //Move Right
-                if(transform.position.x < maxDist)
-                {
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
-                }
-                else
-                {
-                    direction = -1;
+                    case -1:
+                        //Move Left
+                        if (transform.position.x > minDist)
+                        {
+                            GetComponent<Rigidbody2D>().velocity = new Vector2(-movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
+                        }
+                        else
+                        {
+                            direction = 1;
+                        }
+                        break;
+                    case 1:
+                        //Move Right
+                        if (transform.position.x < maxDist)
+                        {
+                            GetComponent<Rigidbody2D>().velocity = new Vector2(movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+                        }
+                        else
+                        {
+                            direction = -1;
+                        }
+                        break;
+
+
                 }
                 break;
 
-                
+            case state.SHOOT:
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                break;
         }
+        
         
     }
 
@@ -82,14 +99,15 @@ public class EnnemyScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "HitPlayer")
         {
-            
+            gun.gameObject.SetActive(true);
+            stateEnemy = state.SHOOT;
             Destroy(collision.gameObject);
             StartCoroutine(Flasch());
             Flasch();
         }
         if(collision.gameObject.tag == "Enemy")
         {
-            Physics2D.IgnoreCollision(body.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.transform.GetComponent<Collider2D>());
         }
 
     }
