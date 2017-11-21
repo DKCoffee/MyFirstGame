@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnnemyScript : MonoBehaviour {
 
+
     [SerializeField] private GameObject gun;
+    [SerializeField] private GunScript gunScript;
 
     [SerializeField]
     private Transform initialPosition;
@@ -101,6 +103,7 @@ public class EnnemyScript : MonoBehaviour {
         {
             gun.gameObject.SetActive(true);
             stateEnemy = state.SHOOT;
+            gunScript.StartShoot();
             Destroy(collision.gameObject);
             StartCoroutine(Flasch());
             Flasch();

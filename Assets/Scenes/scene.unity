@@ -108,6 +108,11 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &154722840 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4791802378670088, guid: bcbd8009f1d420744bc29f86681057a4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1899164368}
 --- !u!1001 &295800545
 Prefab:
   m_ObjectHideFlags: 0
@@ -478,6 +483,51 @@ Transform:
   m_PrefabParentObject: {fileID: 4007463975980438, guid: da02516d498877e4789bbd07eebfb8f1,
     type: 2}
   m_PrefabInternal: {fileID: 295800545}
+--- !u!1 &1441066974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1441066975}
+  - component: {fileID: 1441066976}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441066975
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441066974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 154722840}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441066976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441066974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c5b29b3d5520248bf06b1ee27cd555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 944061409}
+  armEnemy: {fileID: 154722840}
+  bulletPrefab: {fileID: 1247752881589056, guid: b1bf2816f5ec3e1438ff6ee4a5e49b11,
+    type: 2}
+  bulletSpeed: 4
 --- !u!1 &1712678861
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +691,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1513748590150038, guid: bcbd8009f1d420744bc29f86681057a4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4791802378670088, guid: bcbd8009f1d420744bc29f86681057a4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -730,8 +780,27 @@ Prefab:
       propertyPath: m_Mass
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114419473584646684, guid: bcbd8009f1d420744bc29f86681057a4,
+        type: 2}
+      propertyPath: bulletSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114999342655046170, guid: bcbd8009f1d420744bc29f86681057a4,
+        type: 2}
+      propertyPath: gunScript
+      value: 
+      objectReference: {fileID: 1441066976}
+    - target: {fileID: 1590324554550012, guid: bcbd8009f1d420744bc29f86681057a4, type: 2}
+      propertyPath: m_Name
+      value: SpriteArmEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513748590150038, guid: bcbd8009f1d420744bc29f86681057a4, type: 2}
+      propertyPath: m_Name
+      value: ArmEnemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212629701995281344, guid: bcbd8009f1d420744bc29f86681057a4, type: 2}
+    - {fileID: 114419473584646684, guid: bcbd8009f1d420744bc29f86681057a4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bcbd8009f1d420744bc29f86681057a4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2090568462

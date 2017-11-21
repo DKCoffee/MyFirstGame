@@ -77,8 +77,9 @@ public class PigeonController : MonoBehaviour
         if(Time.realtimeSinceStartup - lastTimeFire > timeToFire)
         {
             GameObject ShitTest = Instantiate(ShitPrefab, shitTransfom.position, shitTransfom.rotation);
-            Destroy(ShitTest, 5);
+           
             ShitTest.GetComponent<Rigidbody2D>().velocity = shitTransfom.right * shitVelocity;
+            Destroy(ShitTest, 5);
             lastTimeFire = Time.realtimeSinceStartup;
         }
     }
