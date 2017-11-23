@@ -14,13 +14,21 @@ public class BulletScript : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Limit")
+        if (collision.gameObject.tag == "Limit")
         {
             Destroy(this.gameObject);
         }
-        if (collision.tag == "Player")
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+        if(collision.gameObject.tag =="Ground")
+        {
+            Destroy(this.gameObject);
+        }
+        if(collision.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);
         }

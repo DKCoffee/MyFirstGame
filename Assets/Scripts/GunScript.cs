@@ -14,7 +14,7 @@ public class GunScript : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-     
+        playerTransform = GameObject.Find("Pigeon").transform;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +25,7 @@ public class GunScript : MonoBehaviour
 
     private IEnumerator Fire()
     {
+        
         while (true)
         {
             yield return new WaitForSeconds(timeToFire);

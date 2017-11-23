@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class EnnemyScript : MonoBehaviour {
 
+    public enum EnemyState
+    {
+        WALK,
+        SHOOT
+    }
+
+    public enum WalkingDirection
+    {
+        RIGHT,
+        LEFT
+    }
 
     [SerializeField] private GameObject gun;
     [SerializeField] private GunScript gunScript;
@@ -11,76 +22,41 @@ public class EnnemyScript : MonoBehaviour {
     [SerializeField]
     private Transform initialPosition;
     [SerializeField]
-    private int direction = 1;
-    [SerializeField]
-    private float maxDist;
-    [SerializeField]
-    private float minDist;
-    [SerializeField]
     private float movingSpeed;
 
-   enum state
+    private EnemyState enemyState = EnemyState.WALK;
+    private WalkingDirection walkDirection = WalkingDirection.LEFT;
+
+    private bool isTouched = false;
+
+    // Update is called once per frame
+    void Update ()
     {
-        WALK,
-        SHOOT
-    }
-    state stateEnemy = state.WALK;
-
-
-
-    // Use this for initialization
-    void Start ()
-    {
-        
-        //initialPosition = transform.position;
-        direction = -1;
-        maxDist += transform.position.x;
-        minDist -= transform.position.x;
-
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        switch (stateEnemy)
+        switch (enemyState)
         {
-            case state.WALK:
-                switch (direction)
+            case EnemyState.WALK:
+                switch (walkDirection)
                 {
-                    case -1:
-                        //Move Left
-                        if (transform.position.x > minDist)
-                        {
-                            GetComponent<Rigidbody2D>().velocity = new Vector2(-movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
-                        }
-                        else
-                        {
-                            direction = 1;
-                        }
+                    case WalkingDirection.LEFT:
+                        GetComponent<Rigidbody2D>().velocity = new Vector2(-movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
                         break;
-                    case 1:
-                        //Move Right
-                        if (transform.position.x < maxDist)
-                        {
-                            GetComponent<Rigidbody2D>().velocity = new Vector2(movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
-
-                        }
-                        else
-                        {
-                            direction = -1;
-                        }
+                    case WalkingDirection.RIGHT:
+                        GetComponent<Rigidbody2D>().velocity = new Vector2(movingSpeed, GetComponent<Rigidbody2D>().velocity.y);
                         break;
-
-
                 }
                 break;
 
-            case state.SHOOT:
+            case EnemyState.SHOOT:
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                 break;
         }
         
         
+    }
+
+    public void changeDirection(WalkingDirection newDir)
+    {
+        walkDirection = newDir;
     }
 
     private IEnumerator Flasch()
@@ -97,22 +73,26 @@ public class EnnemyScript : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "HitPlayer")
+        if(!isTouched)
         {
-            gun.gameObject.SetActive(true);
-            stateEnemy = state.SHOOT;
-            gunScript.StartShoot();
-            Destroy(collision.gameObject);
-            StartCoroutine(Flasch());
-            Flasch();
+            if (collision.tag == "HitPlayer")
+            {
+                gun.gameObject.SetActive(true);
+                enemyState = EnemyState.SHOOT;
+                gunScript.StartShoot();
+                Destroy(collision.gameObject);
+                StartCoroutine(Flasch());
+                Flasch();
+                isTouched = true;
+            }
+            
         }
-        if(collision.gameObject.tag == "Enemy")
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.transform.GetComponent<Collider2D>());
-        }
+       
 
     }
+
+
 
 }

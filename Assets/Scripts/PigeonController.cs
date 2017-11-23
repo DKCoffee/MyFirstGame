@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PigeonController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PigeonController : MonoBehaviour
     [SerializeField]
     private float shitVelocity = 2;
     [SerializeField]
-    private float timeToFire = 2;
+    private float timeToFire = 5;
     private float lastTimeFire = 0;
 
     private SpriteRenderer spriteRenderer;
@@ -82,5 +83,14 @@ public class PigeonController : MonoBehaviour
             Destroy(ShitTest, 5);
             lastTimeFire = Time.realtimeSinceStartup;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            SceneManager.LoadScene("Defeat");
+        }
+
     }
 }
