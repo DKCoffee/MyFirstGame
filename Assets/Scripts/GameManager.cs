@@ -16,14 +16,25 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        textScore.text = TEXT_SCORE;
+        
+       
     }
 
     // Update is called once per frame
-
-
     void Update()
     {
+        score = 0;
+        UpdateScore ();
+    }
 
+    private void AddScore (int newScoreValue)
+    {
+        score += newScoreValue;
+        UpdateScore();
+    }
+
+    private void UpdateScore()
+    {
+        textScore.text = "Score: " + score;
     }
 }
