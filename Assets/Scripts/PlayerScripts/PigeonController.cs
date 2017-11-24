@@ -42,7 +42,7 @@ public class PigeonController : MonoBehaviour
 
         body.velocity = movement;
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButton("Shit"))
         {
             Shit();
         }

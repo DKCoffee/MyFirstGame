@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ButtonController : MonoBehaviour
+public class PlayButtonController : MonoBehaviour
 {
     [SerializeField]
     public Button Button;

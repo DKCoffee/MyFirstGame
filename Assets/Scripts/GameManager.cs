@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
 
     private const string TEXT_SCORE = "Score : ";
 
+
     // Use this for initialization
     void Start()
     {
-        
        
     }
 
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         textScore.text = "Score: " + score;
         if(score >= 30)
         {
-            SceneManager.LoadScene("WinScene");
+            SceneManager.LoadScene("Victory");
         }
     }
 
