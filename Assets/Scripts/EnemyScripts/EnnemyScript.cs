@@ -29,6 +29,13 @@ public class EnnemyScript : MonoBehaviour {
 
     private bool isTouched = false;
 
+    private GameManager gameManager;
+
+    // Use this for initialization
+    void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     // Update is called once per frame
     void Update ()
     {
@@ -64,12 +71,10 @@ public class EnnemyScript : MonoBehaviour {
         for (int i = 0; i < 1; i++)
         {
 
-
             GetComponent<SpriteRenderer>().color = Color.clear;
             yield return new WaitForSeconds(.1f);
             GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSeconds(.1f);
-
         }
     }
 
@@ -86,8 +91,9 @@ public class EnnemyScript : MonoBehaviour {
                 StartCoroutine(Flasch());
                 Flasch();
                 isTouched = true;
+                gameManager.AddScore();
             }
-            
+
         }
        
 

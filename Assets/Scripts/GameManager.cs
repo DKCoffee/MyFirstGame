@@ -23,18 +23,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = 0;
-        UpdateScore ();
     }
 
-    private void AddScore (int newScoreValue)
+    public void AddScore()
     {
-        score += newScoreValue;
-        UpdateScore();
-    }
-
-    private void UpdateScore()
-    {
+        score++;
         textScore.text = "Score: " + score;
+        if(score >= 30)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
     }
+
 }
