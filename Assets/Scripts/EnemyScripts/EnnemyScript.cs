@@ -31,10 +31,18 @@ public class EnnemyScript : MonoBehaviour {
 
     private GameManager gameManager;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private MultiSoundsRandom soundsHit;
+    private void Awake()
+    {
+        soundsHit = GetComponent<MultiSoundsRandom>();
+    }
     // Use this for initialization
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        
     }
     // Update is called once per frame
     void Update ()
@@ -84,6 +92,7 @@ public class EnnemyScript : MonoBehaviour {
         {
             if (collision.tag == "HitPlayer")
             {
+                
                 gun.gameObject.SetActive(true);
                 enemyState = EnemyState.SHOOT;
                 gunScript.StartShoot();
@@ -92,13 +101,11 @@ public class EnnemyScript : MonoBehaviour {
                 Flasch();
                 isTouched = true;
                 gameManager.AddScore();
+                soundsHit.PlaySound();
             }
 
         }
        
-
     }
-
-
 
 }
