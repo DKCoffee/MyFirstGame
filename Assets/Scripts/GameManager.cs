@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     private const string TEXT_SCORE = "Score : ";
 
-
     // Use this for initialization
     void Start()
     {

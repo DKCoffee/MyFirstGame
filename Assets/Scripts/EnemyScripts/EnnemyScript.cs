@@ -18,12 +18,8 @@ public class EnnemyScript : MonoBehaviour {
 
     [SerializeField] private GameObject gun;
     [SerializeField] private GunScript gunScript;
-
-    [SerializeField]
-    private Transform initialPosition;
-    [SerializeField]
-    private float movingSpeed;
-
+    [SerializeField] private float movingSpeed;
+    
     private EnemyState enemyState = EnemyState.WALK;
     private WalkingDirection walkDirection = WalkingDirection.LEFT;
 
@@ -38,6 +34,7 @@ public class EnnemyScript : MonoBehaviour {
     {
         soundsHit = GetComponent<MultiSoundsRandom>();
     }
+
     // Use this for initialization
     void Start()
     {

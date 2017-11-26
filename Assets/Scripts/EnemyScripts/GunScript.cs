@@ -11,6 +11,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed;
     private float timeToFire = 2;
+
     // Use this for initialization
     void Start ()
     {
@@ -42,6 +43,5 @@ public class GunScript : MonoBehaviour
     {
         StartCoroutine(Fire());
     }
-    //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+    
 }

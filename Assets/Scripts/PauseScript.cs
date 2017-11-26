@@ -5,11 +5,9 @@ using UnityEngine;
 public class PauseScript : MonoBehaviour
 {
 
-    [SerializeField]
-    private GameObject pausePanel;
-    [SerializeField]
-    private GameObject uiGameText;
-
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject uiGameText;
+    
     private bool isInPause = false;
 
     private static PauseScript instance;

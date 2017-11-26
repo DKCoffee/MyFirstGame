@@ -9,17 +9,11 @@ public class PigeonController : MonoBehaviour
 
     private Rigidbody2D body;
     
-
-
     [Header("Shit")]
-    [SerializeField]
-    private GameObject ShitPrefab;
-    [SerializeField]
-    private Transform shitTransfom;
-    [SerializeField]
-    private float shitVelocity = 2;
-    [SerializeField]
-    private float timeToFire = 5;
+    [SerializeField] private GameObject ShitPrefab;
+    [SerializeField] private Transform shitTransfom;
+    [SerializeField] private float shitVelocity = 2;
+    [SerializeField] private float timeToFire = 5;
     private float lastTimeFire = 0;
 
     private SpriteRenderer spriteRenderer;
