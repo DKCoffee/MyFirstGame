@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  ShitPrefab: {fileID: 0}
+  shitPrefab: {fileID: 1199434241206128, guid: 1f5839fada3e62b4b8ad7a90dbf244cc, type: 2}
   shitTransfom: {fileID: 0}
   shitVelocity: 2
   timeToFire: 2

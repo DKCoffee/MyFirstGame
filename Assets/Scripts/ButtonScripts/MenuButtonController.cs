@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 public class MenuButtonController : MonoBehaviour
 {
     [SerializeField]
-    public Button Button;
+    public Button menuButton;
 
     // Use this for initialization
     void Start()
     {
-        Button buttonn = Button.GetComponent<Button>();
-        buttonn.onClick.AddListener(LoadLevel);
+        Button button = menuButton.GetComponent<Button>();
+        button.onClick.AddListener(LoadLevel);
     }
 
     // Update is called once per frame

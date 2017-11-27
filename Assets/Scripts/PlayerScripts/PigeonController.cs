@@ -10,7 +10,7 @@ public class PigeonController : MonoBehaviour
     private Rigidbody2D body;
     
     [Header("Shit")]
-    [SerializeField] private GameObject ShitPrefab;
+    [SerializeField] private GameObject shitPrefab;
     [SerializeField] private Transform shitTransfom;
     [SerializeField] private float shitVelocity = 2;
     [SerializeField] private float timeToFire = 5;
@@ -71,7 +71,7 @@ public class PigeonController : MonoBehaviour
     {
         if(Time.realtimeSinceStartup - lastTimeFire > timeToFire)
         {
-            GameObject ShitTest = Instantiate(ShitPrefab, shitTransfom.position, shitTransfom.rotation);
+            GameObject ShitTest = Instantiate(shitPrefab, shitTransfom.position, shitTransfom.rotation);
            
             ShitTest.GetComponent<Rigidbody2D>().velocity = shitTransfom.right * shitVelocity;
             Destroy(ShitTest, 5);

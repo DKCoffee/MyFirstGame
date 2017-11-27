@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f049524561a4b6d438c6724393dc5eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 136197068}
+  retryButton: {fileID: 136197068}
 --- !u!1 &307226732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f954424b002bde4e936068879f2ca07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 1752034544}
+  menuButton: {fileID: 1752034544}
 --- !u!1 &1977558301
 GameObject:
   m_ObjectHideFlags: 0

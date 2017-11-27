@@ -22,10 +22,9 @@ GameObject:
   - component: {fileID: 212537098908459262}
   - component: {fileID: 50436923725805624}
   - component: {fileID: 58606543405160730}
-  - component: {fileID: 114331325175491356}
-  - component: {fileID: 114599474275419270}
+  - component: {fileID: 114798503839082200}
   m_Layer: 0
-  m_Name: ShitTest
+  m_Name: BulletShit
   m_TagString: HitPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,18 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114331325175491356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1199434241206128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72838745d91d6e4ab6a49333c226598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114599474275419270
+--- !u!114 &114798503839082200
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
