@@ -71,7 +71,7 @@ public class EnnemyScript : MonoBehaviour {
         walkDirection = newDir;
     }
 
-    private IEnumerator Flasch()
+    private IEnumerator Flash()
     {
         for (int i = 0; i < 1; i++)
         {
@@ -94,8 +94,8 @@ public class EnnemyScript : MonoBehaviour {
                 enemyState = EnemyState.SHOOT;
                 gunScript.StartShoot();
                 Destroy(collision.gameObject);
-                StartCoroutine(Flasch());
-                Flasch();
+                StartCoroutine(Flash());
+                Flash();
                 isTouched = true;
                 gameManager.AddScore();
                 soundsHit.PlaySound();
