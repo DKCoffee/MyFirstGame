@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int score;
-    [SerializeField] private Text scoreSave;
-    [SerializeField] private Text highscore;
+    private int score = 0;
+    public Text scoreSave;
+    public Text highscore;
 
 
     // Use this for initialization
     void Start()
     {
-        scoreSave.text = PlayerPrefs.GetInt("ScoreSave", 0).ToString();
+        scoreSave.text = PlayerPrefs.GetInt("Score", 0).ToString();
         highscore.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
     }
 
@@ -28,10 +28,10 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreSave.text = score.ToString();
-
-        if(score > PlayerPrefs.GetInt("Highscore",0))
+        PlayerPrefs.SetInt("Score", score);
+        if(score > PlayerPrefs.GetInt("Highscore", 0))
         {
-            PlayerPrefs.GetInt("Highscore", score);
+            PlayerPrefs.SetInt("Highscore", score);
             highscore.text = score.ToString();
         }
         if(score >= 30)
