@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiSoundsRandom : MonoBehaviour {
+public class MultiSoundsRandom : MonoBehaviour
+{
 
-    [SerializeField]
-    private AudioClip[] tableSounds;
+    [SerializeField] private AudioClip[] tableSounds;
     private AudioSource audioSource;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         audioSource = GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void PlaySound()

@@ -25,12 +25,6 @@ public class PauseScript : MonoBehaviour
         instance = this;
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

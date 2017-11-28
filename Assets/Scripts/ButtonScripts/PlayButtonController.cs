@@ -6,20 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayButtonController : MonoBehaviour
 {
-    [SerializeField]
-    public Button playButton;
+    [SerializeField] public Button playButton;
 
     // Use this for initialization
     void Start()
     {
         Button button = playButton.GetComponent<Button>();
         button.onClick.AddListener(LoadLevel);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void LoadLevel()

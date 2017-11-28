@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawnScript : MonoBehaviour {
+public class EnemySpawnScript : MonoBehaviour
+{
 
     [SerializeField] private GameObject EnemyPrefab;
     [SerializeField] private Transform SpawnTransform;
@@ -10,13 +11,9 @@ public class EnemySpawnScript : MonoBehaviour {
     [SerializeField] private float LasttimeSpawn;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         InvokeRepeating("Spawn", TimeToSpawn, TimeToSpawn);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
 	}
 
     private void Spawn()

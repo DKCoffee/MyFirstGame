@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDirectionTrigger : MonoBehaviour {
+public class EnemyDirectionTrigger : MonoBehaviour
+{
 
     public enum TriggerSide
     {
@@ -10,8 +11,7 @@ public class EnemyDirectionTrigger : MonoBehaviour {
         LEFT
     };
 
-    [SerializeField]
-    private TriggerSide side = TriggerSide.RIGHT;
+    [SerializeField] private TriggerSide side = TriggerSide.RIGHT;
 
     private EnnemyScript enemy;
 

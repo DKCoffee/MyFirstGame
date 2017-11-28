@@ -18,12 +18,6 @@ public class GameManager : MonoBehaviour
         highscore.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void AddScore()
     {
         score++;
