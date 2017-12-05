@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 0df1d43b8e9b8164996f464f2859efb7
   - enabled: 1
-    path: Assets/Scenes/Credit.unity
+    path: Assets/Scenes/Credits.unity
     guid: 3343132ed39bdb147be8b9dc9cd8ff59
   - enabled: 1
     path: Assets/Scenes/Game.unity
@@ -17,6 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Defeat.unity
     guid: a5ec7bf33672f1e4fbc92eb5dd46fdce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Victory.unity
     guid: 08aac629a33ad5740a3662bcbb8a8eb0

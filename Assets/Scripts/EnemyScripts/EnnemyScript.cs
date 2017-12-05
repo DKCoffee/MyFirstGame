@@ -98,6 +98,7 @@ public class EnnemyScript : MonoBehaviour
                 Flash();
                 isTouched = true;
                 gameManager.AddScore();
+                gameManager.Cheating = false;
                 soundsHit.PlaySound();
             }
 

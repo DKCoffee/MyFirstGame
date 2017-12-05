@@ -10,7 +10,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private Transform armEnemy;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed;
-    private float timeToFire = 2;
+    [SerializeField] private float timeToFire = 2;
 
     // Use this for initialization
     void Start ()
